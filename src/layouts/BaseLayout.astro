@@ -46,11 +46,18 @@ const fullTitle = pageTitle ? `${pageTitle} | Astro Learner` : "Astro Learner | 
   </head>
   <body>
     <Header />
-    <h1>{pageTitle}</h1>
-    <slot />
+    <main>
+      <h1>{pageTitle}</h1>
+      <slot />
+    </main>
     <Footer />
-    <script>
-      import "../scripts/menu.js";
+    <script is:inline>
+      // Menu toggle functionality (inlined to avoid network request)
+      const menu = document.querySelector('.menu');
+      menu?.addEventListener('click', () => {
+        const isExpanded = menu.getAttribute('aria-expanded') === 'true';
+        menu.setAttribute('aria-expanded', `${!isExpanded}`);
+      });
     </script>
   </body>
 </html>

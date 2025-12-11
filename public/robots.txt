@@ -1,0 +1,6 @@
+# robots.txt for Astro Blog
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://astro-blog-8tb.pages.dev/sitemap-index.xml
